@@ -246,11 +246,68 @@ sub menupage {
 
 menupage $topmenu, 'Varkon', sub {
   element 'h1', 'Varkon';
-  element 'p', 'Varkon is a programmable CAD system.';
+  startTag 'p';
+  text 'Varkon is a ';
+  element 'a', 'GNU/LGPL',
+    href => 'http://www.gnu.org/licenses/licenses.html';
+  text ' CAD system available from ';
+  element 'a', 'Microform AB',
+    href => 'http://www.microform.se';
+  text ' in Sweden.  ';
+  text "Varkon differs from other CAD systems in that
+it is uniquely suitable for programming.";
+  endTag 'p';
+
+  element 'p', 'This site is for the users of Varkon
+independent of any single company or project.';
+
+  element 'h2', 'Versions';
+
+  element 'p', 'Varkon 1.x is a mature product.  
+Microform is now mainly concerned with customer support and consulting.';
+
+  startTag 'p';
+  element 'a', 'Prof Johan Kjellander',
+    href => 'http://www.microform.se/johan.htm';
+  text ' and some PhD-students are
+working on working on Varkon version 2.
+While Varkon 1.x is not a solid modeler and can unfortunately not
+"subtract" or limit surfaces, this is one of the features
+expected in Version 2.';
+  endTag 'p';
 };
 
 menupage $topmenu, 'FAQ', sub {
   element 'h1', 'FAQ';
+
+  startTag 'ul';
+  startTag 'li';
+  text "Q. It seems like varkon doesn't support partial refs.  For example:";
+  startTag 'pre';
+  text 'REF r1, r2;
+r1 := #2#4;
+r2 := r1#2#5;   ! meaning r2 := #2#4#2#5;';
+  endTag 'pre';
+
+  element 'p', 'A. You are right. Convert them to strings, add them and convert them back.';
+  element 'pre', 'r2:=rval(rstr(r1)+"#2#5");';
+  element 'p', '(Johan)';
+  endTag 'li';
+
+  startTag 'li';
+  element 'p', 'Q. What is the best way to keep constants around
+which i can use across more than one module?  For example, i have:';
+  element 'pre', 'CONSTANT FLOAT ceiling_height=2.95;
+CONSTANT FLOAT wall_thickness=0.15;
+CONSTANT FLOAT floor_thickness=0.24;';
+
+  element 'p', 'A. The scope of a constant is one module.
+Sometimes we use putdat() and getdat()
+to keep global data. (Johan)';
+
+  endTag 'li';
+
+  endTag 'ul';
 };
 
 menupage $topmenu, 'Mailing Lists', sub {
