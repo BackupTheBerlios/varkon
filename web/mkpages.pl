@@ -261,7 +261,7 @@ it is uniquely suitable for programming.";
   element 'p', 'This site is for the users of Varkon
 independent of any single company or project.';
 
-  element 'h2', 'Versions';
+  element 'h2', 'Status';
 
   element 'p', 'Varkon 1.x is a mature product.  
 Microform is now mainly concerned with customer support and consulting.';
@@ -269,8 +269,7 @@ Microform is now mainly concerned with customer support and consulting.';
   startTag 'p';
   element 'a', 'Prof Johan Kjellander',
     href => 'http://www.microform.se/johan.htm';
-  text ' and some PhD-students are
-working on working on Varkon version 2.
+  text ' and some PhD-students are working on Varkon version 2.
 While Varkon 1.x is not a solid modeler and can unfortunately not
 "subtract" or limit surfaces, this is one of the features
 expected in Version 2.';
